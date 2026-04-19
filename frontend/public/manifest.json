@@ -1,0 +1,18 @@
+{
+  "short_name": "删·计划",
+  "name": "Deletion-First Daily Planner",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#007AFF",
+  "background_color": "#f8fafc",
+  "categories": ["productivity"],
+  "description": "AI-powered task planning assistant that helps you focus by suggesting what to delete."
+}

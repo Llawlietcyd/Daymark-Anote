@@ -1,0 +1,38 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" stroke="#191919" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+    <clipPath id="clip">
+      <rect x="26" y="26" width="460" height="460" rx="132"/>
+    </clipPath>
+  </defs>
+
+  <rect x="26" y="26" width="460" height="460" rx="132" fill="#FBF8F1" stroke="#D9D4CA" stroke-width="8"/>
+
+  <g clip-path="url(#clip)">
+    <rect x="26" y="26" width="460" height="460" fill="url(#grid)"/>
+    <rect x="26" y="26" width="152" height="152" fill="#060606"/>
+    <rect x="318" y="318" width="168" height="168" fill="#060606"/>
+
+    <rect x="112" y="112" width="288" height="288" stroke="#D6D1C7" stroke-width="4"/>
+
+    <path d="M198 112V400" stroke="#AFA99E" stroke-width="4"/>
+    <path d="M314 112V400" stroke="#AFA99E" stroke-width="4"/>
+
+    <path d="M112 198H400" stroke="#C8C2B7" stroke-width="4"/>
+    <path d="M112 314H400" stroke="#C8C2B7" stroke-width="4"/>
+
+    <text
+      x="138"
+      y="362"
+      fill="#060606"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace"
+      font-size="116"
+      font-weight="700"
+      letter-spacing="12"
+    >
+      D
+    </text>
+  </g>
+</svg>
