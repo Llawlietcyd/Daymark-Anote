@@ -8,6 +8,15 @@ What is different in this version:
 - reframes the UI copy around a fellowship operating system instead of a generic personal planner
 - teaches the in-app concierge to answer fellowship schedule and deliverable questions
 
+## Take-Home Submission Materials
+
+The written take-home materials are collected in [`takehome/`](./takehome/):
+
+- [`takehome/research_idea.md`](./takehome/research_idea.md) — draft research paper idea
+- [`takehome/paper/daymark_anote_ai_planning_system.tex`](./takehome/paper/daymark_anote_ai_planning_system.tex) — Overleaf-ready draft paper
+- [`takehome/blog_post.md`](./takehome/blog_post.md) — short blog post
+- This repository itself is the code sample / prototype
+
 The original Daymark workspace was kept separate. This copy is the safe place to iterate on the take-home.
 
 English | [中文](#中文说明)

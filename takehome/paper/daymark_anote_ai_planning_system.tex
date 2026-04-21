@@ -1,0 +1,218 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  citecolor=black
+}
+
+\title{\textbf{Daymark-Anote: Evaluating AI-Assisted Planning Workflows for Long-Horizon Research Fellowship Programs}}
+\author{Yidian Chen}
+\date{Draft take-home submission}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Research fellowships require participants to coordinate long-horizon deliverables, recurring meetings, research milestones, product work, and final presentations. These expectations are often documented in static calendars and onboarding materials, but fellows still need to translate them into daily plans and mentors still need reliable signals about progress and drift. This paper proposes \textit{Daymark-Anote}, an applied AI systems prototype that adapts a daily planning product into an operating board for the Anote AI Research Fellowship. The system maps official program milestones, recurring rituals, deliverables, review traces, and assistant interactions into a unified planning workflow. The central research question is whether an AI-assisted planning system can help research fellows convert long-horizon program goals into daily plans, reviewable progress traces, and actionable evaluation signals. This draft describes the motivation, system design, proposed methodology, evaluation plan, and expected contributions.
+\end{abstract}
+
+\section{Introduction}
+
+Long-horizon research programs create a recurring planning problem. Participants understand that a paper, product contribution, and final presentation are due by the end of the program, but the day-to-day path toward those deliverables is rarely automatic. A static calendar can state that a research proposal is due on a particular date, that a standup happens every Tuesday, or that a final presentation occurs in August. It does not decide what belongs in today's plan, whether the fellow is drifting from the milestone path, or what evidence should be shown to a mentor during a check-in.
+
+This gap is especially visible in research fellowship settings. Fellows are expected to make progress on ambiguous research questions, contribute to real products, attend recurring sessions, and communicate clearly. The work is not only a task management problem. It is also an evaluation problem: mentors and program managers need to understand whether progress is real, whether blockers are surfacing early, and whether daily activity aligns with long-term goals.
+
+Daymark-Anote explores this gap through an applied AI systems prototype. The system adapts Daymark, a daily planning and review product, into a fellowship-specific operating board for the Anote AI Research Fellowship. Instead of treating the fellowship schedule as a static reference, Daymark-Anote converts the program timeline into structured planning context. It provides a Fellowship page for long-horizon structure, a Today page for execution, a Review page for progress traces, and a concierge assistant for schedule-aware interaction.
+
+The core question is:
+
+\begin{quote}
+Can an AI-assisted planning system help research fellows translate long-horizon program goals into daily plans, reviewable progress traces, and actionable evaluation signals?
+\end{quote}
+
+\section{Motivation}
+
+The Anote AI Research Fellowship is organized around three major deliverables: an AI research paper, a final presentation, and a meaningful product contribution. The program also contains recurring events such as research standups, product standups, and fellowship talks, plus fixed milestones such as orientation, midpoint check-ins, final presentations, and final wrap-up.
+
+This structure is useful, but it creates several practical challenges:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Translation cost.} Fellows must convert long-term deadlines into daily actions.
+  \item \textbf{Progress opacity.} Mentors may see final outputs but not the daily evidence that explains progress or drift.
+  \item \textbf{Fragmented context.} Program calendars, tasks, notes, focus sessions, and reflections often live in different tools.
+  \item \textbf{Assistant grounding risk.} A generic assistant may answer schedule questions without respecting actual task state or program facts.
+\end{itemize}
+
+An AI-assisted planning system can be useful if it reduces these gaps. The goal is not to automate research judgment. Instead, the system should help maintain alignment between program structure and daily execution.
+
+\section{System Overview}
+
+Daymark-Anote is implemented as a React and FastAPI prototype. The code sample is available at:
+
+\begin{center}
+\url{https://github.com/Llawlietcyd/Daymark-Anote}
+\end{center}
+
+The prototype adds fellowship-specific workflows to an existing planning product while preserving the original daily planning loop.
+
+\subsection{Fellowship Board}
+
+The Fellowship page acts as the program operating board. It shows the official fellowship timeline, current program position, core deliverables, recurring rituals, and calendar events. It also allows users to import official milestones and recurring sessions into the task system.
+
+\subsection{Today Workflow}
+
+The Today page remains the daily execution surface. This design choice is intentional: the fellowship context should inform the day, but it should not replace the user's decision about what actually belongs today. Tasks can be completed, deferred, deleted, or selected for focus sessions.
+
+\subsection{Review Workflow}
+
+The Review page turns daily activity into a progress trace. It surfaces completed work, planned work, focus logs, schedule entries, and weekly summaries. In a fellowship context, this trace can support mentor check-ins and help detect whether work is drifting from program milestones.
+
+\subsection{Concierge Assistant}
+
+The assistant can answer fellowship schedule and deliverable questions while still supporting normal task operations. A key design requirement is context separation: asking about the fellowship timeline should not hijack unrelated task questions, and asking about personal tasks should not return generic fellowship boilerplate.
+
+\section{Research Questions}
+
+This project can be evaluated through the following research questions:
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Planning alignment:} Does Daymark-Anote help fellows create daily plans that better align with upcoming program milestones?
+  \item \textbf{Schedule grounding:} Can the assistant answer fellowship schedule questions accurately without confusing recurring events, fixed milestones, and user tasks?
+  \item \textbf{Progress trace quality:} Do review artifacts make progress, drift, and blockers more visible to fellows and mentors?
+  \item \textbf{User trust:} Do fellows perceive the system as helpful and grounded rather than generic or intrusive?
+\end{enumerate}
+
+\section{Proposed Methodology}
+
+The evaluation would combine offline schedule-grounding tests, scenario-based planning tasks, and a small user study.
+
+\subsection{Condition A: Static Calendar Workflow}
+
+Participants receive the fellowship calendar and manually create daily plans using their usual tools. This condition represents the baseline: information exists, but the translation from program structure to daily action is manual.
+
+\subsection{Condition B: Daymark-Anote Workflow}
+
+Participants use Daymark-Anote with the official fellowship timeline imported. They can use the Fellowship page, Today workflow, Review page, focus timer, and assistant.
+
+\subsection{Participants}
+
+A pilot study could use current or simulated fellowship participants. If actual fellows are not available, the study can begin with a realistic scenario-based evaluation where participants are given a fellowship role, a research topic, a product assignment, and a set of upcoming milestones.
+
+\subsection{Procedure}
+
+\begin{enumerate}[leftmargin=*]
+  \item Participants review the fellowship timeline and assigned deliverables.
+  \item Participants create a plan for the next working day and the next week.
+  \item Participants answer schedule and prioritization questions using either the static materials or Daymark-Anote.
+  \item Participants complete a simulated review session after mock progress events such as completed tasks, deferred tasks, and focus logs.
+  \item Participants provide qualitative feedback on clarity, trust, and usefulness.
+\end{enumerate}
+
+\section{Evaluation Plan}
+
+\subsection{Schedule-Grounding Accuracy}
+
+Create a benchmark of fellowship schedule questions:
+
+\begin{itemize}[leftmargin=*]
+  \item What happens today in the fellowship?
+  \item What is due this week?
+  \item When is the midpoint check-in?
+  \item What are the final deliverables?
+  \item What is my plan for next Tuesday?
+\end{itemize}
+
+The assistant is evaluated on whether it returns correct dates, distinguishes recurring sessions from fixed events, and avoids using fellowship-specific answers for unrelated personal task questions.
+
+\subsection{Planning Alignment Metrics}
+
+Planning alignment can be measured using:
+
+\begin{itemize}[leftmargin=*]
+  \item Time required to produce a realistic daily plan.
+  \item Percentage of daily tasks connected to upcoming milestones.
+  \item Number of missed, duplicated, or incorrectly dated milestone tasks.
+  \item Number of deferrals and whether they remain visible in review.
+  \item Self-reported confidence in what to work on next.
+\end{itemize}
+
+\subsection{Review Trace Quality}
+
+Review quality can be measured by asking fellows or mentors to inspect weekly review artifacts and rate:
+
+\begin{itemize}[leftmargin=*]
+  \item Whether the system shows what actually happened on a selected date.
+  \item Whether future scheduled work is separated from past activity.
+  \item Whether blockers and drift are visible.
+  \item Whether the trace would be useful in a mentor or PM check-in.
+\end{itemize}
+
+\section{Expected Results}
+
+The expected outcome is not that Daymark-Anote fully automates fellowship planning. Rather, the hypothesis is that a grounded planning system can reduce ambiguity and improve reviewability.
+
+Compared with a static calendar workflow, Daymark-Anote is expected to:
+
+\begin{itemize}[leftmargin=*]
+  \item Reduce the time needed to decide what matters today.
+  \item Increase alignment between daily tasks and upcoming milestones.
+  \item Improve recall of fixed and recurring fellowship events.
+  \item Produce review artifacts that better explain progress and drift.
+  \item Make assistant failures easier to detect through structured tests.
+\end{itemize}
+
+\section{Anticipated Contributions}
+
+This work aims to contribute:
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{A research framing for AI-assisted fellowship planning.} The project treats planning artifacts as evaluation signals, not just productivity data.
+  \item \textbf{A working prototype.} Daymark-Anote demonstrates how an existing planning system can be adapted to a domain-specific program workflow.
+  \item \textbf{An evaluation protocol.} The proposed benchmark covers schedule grounding, planning alignment, and review trace quality.
+  \item \textbf{Design implications for applied AI systems.} The prototype highlights the importance of user-scoped state, deduplication, date grounding, and separation between program context and personal task context.
+\end{enumerate}
+
+\section{Limitations}
+
+This draft describes a prototype and evaluation plan rather than a completed empirical study. Several limitations remain:
+
+\begin{itemize}[leftmargin=*]
+  \item The current prototype has not yet been evaluated with a full cohort of fellows.
+  \item Planning quality is difficult to measure because different fellows may have different research styles.
+  \item Some benefits may appear only over multiple weeks, especially review and drift detection.
+  \item The system may need different defaults for research-heavy, product-heavy, and remote fellows.
+\end{itemize}
+
+\section{Conclusion}
+
+Research fellowships are long-horizon systems. They require participants to turn broad deliverables into daily work, and they require mentors to interpret progress from incomplete signals. Daymark-Anote explores whether an AI-assisted planning product can help bridge this gap. By grounding the assistant in the fellowship timeline, preserving the daily planning loop, and turning activity into reviewable traces, the system provides a concrete prototype for studying AI-assisted planning and evaluation workflows.
+
+\begin{thebibliography}{9}
+
+\bibitem{amershi2019guidelines}
+Amershi, S., Weld, D., Vorvoreanu, M., Fourney, A., Nushi, B., Collisson, P., Suh, J., Iqbal, S., Bennett, P. N., Inkpen, K., Teevan, J., Kikin-Gil, R., and Horvitz, E.
+\textit{Guidelines for Human-AI Interaction}.
+Proceedings of CHI, 2019.
+
+\bibitem{shneiderman2020human}
+Shneiderman, B.
+\textit{Human-Centered Artificial Intelligence: Reliable, Safe \& Trustworthy}.
+International Journal of Human-Computer Interaction, 2020.
+
+\bibitem{allen2001getting}
+Allen, D.
+\textit{Getting Things Done: The Art of Stress-Free Productivity}.
+Penguin Books, 2001.
+
+\end{thebibliography}
+
+\end{document}
