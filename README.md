@@ -13,7 +13,8 @@ What is different in this version:
 The written take-home materials are collected in [`takehome/`](./takehome/):
 
 - [`takehome/research_idea.md`](./takehome/research_idea.md) — draft research paper idea
-- [`takehome/paper/daymark_anote_ai_planning_system.tex`](./takehome/paper/daymark_anote_ai_planning_system.tex) — Overleaf-ready draft paper
+- [`takehome/paper/daymark_anote_ai_planning_system.pdf`](./takehome/paper/daymark_anote_ai_planning_system.pdf) — compiled draft paper PDF
+- [`takehome/paper/daymark_anote_ai_planning_system.tex`](./takehome/paper/daymark_anote_ai_planning_system.tex) — Overleaf-ready draft paper source
 - [`takehome/blog_post.md`](./takehome/blog_post.md) — short blog post
 - This repository itself is the code sample / prototype
 

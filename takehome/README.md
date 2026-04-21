@@ -6,7 +6,8 @@ This folder contains the written take-home materials that build on the Daymark-A
 
 - **Code sample / prototype:** https://github.com/Llawlietcyd/Daymark-Anote
 - **Research idea summary:** [`research_idea.md`](./research_idea.md)
-- **Draft paper:** [`paper/daymark_anote_ai_planning_system.tex`](./paper/daymark_anote_ai_planning_system.tex)
+- **Draft paper PDF:** [`paper/daymark_anote_ai_planning_system.pdf`](./paper/daymark_anote_ai_planning_system.pdf)
+- **Draft paper LaTeX / Overleaf source:** [`paper/daymark_anote_ai_planning_system.tex`](./paper/daymark_anote_ai_planning_system.tex)
 - **Short blog post:** [`blog_post.md`](./blog_post.md)
 
 ## Framing
@@ -22,7 +23,7 @@ The central research question is:
 | Requirement | Submission |
 | --- | --- |
 | Draft research paper idea | `research_idea.md` |
-| Draft paper in LaTeX / Overleaf | `paper/daymark_anote_ai_planning_system.tex` |
+| Draft paper in LaTeX / Overleaf | `paper/daymark_anote_ai_planning_system.pdf` and `paper/daymark_anote_ai_planning_system.tex` |
 | Code sample in GitHub repository | `https://github.com/Llawlietcyd/Daymark-Anote` |
 | Short blog post | `blog_post.md` |
 
